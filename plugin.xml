@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="org.felixtioh.phonegap.plugins"
+      version="0.1.0">
+    <name>WifiInfo</name>
+    <description>Wifi Info Plugin</description>
+    <license>MIT</license>
+    <keywords>phonegap,wifi, mac</keywords>
+
+    <js-module src="www/wifi_info.js" name="WifiInfo">
+        <clobbers target="window.wifi_info" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="WifiInfo">
+                <param name="android-package" value="org.felixtioh.phonegap.plugins.WifiInfo"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/WifiInfo.java" target-dir="src/org/felixtioh/phonegap/plugins" />      
+     </platform>          
+</plugin>
