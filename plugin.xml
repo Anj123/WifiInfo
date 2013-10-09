@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-           id="org.felixtioh.phonegap.plugins"
+           id="org.felixtioh.phonegap.plugins.wifi"
       version="0.1.0">
     <name>WifiInfoPlugin</name>
     <description>Wifi Info Plugin</description>
@@ -16,7 +16,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="WifiInfoPlugin">
-                <param name="android-package" value="org.felixtioh.phonegap.plugins.WifiInfoPlugin"/>
+                <param name="android-package" value="org.felixtioh.phonegap.plugins.wifi.WifiInfoPlugin"/>
             </feature>
         </config-file>
 		
@@ -24,6 +24,6 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         </config-file>
 
-        <source-file src="src/android/WifiInfoPlugin.java" target-dir="src/org/felixtioh/phonegap/plugins" />      
+        <source-file src="src/android/WifiInfoPlugin.java" target-dir="src/org/felixtioh/phonegap/plugins/wifi" />      
      </platform>          
 </plugin>
