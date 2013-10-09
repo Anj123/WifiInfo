@@ -19,6 +19,10 @@
                 <param name="android-package" value="org.felixtioh.phonegap.plugins.WifiInfoPlugin"/>
             </feature>
         </config-file>
+		
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
 
         <source-file src="src/android/WifiInfoPlugin.java" target-dir="src/org/felixtioh/phonegap/plugins" />      
      </platform>          
