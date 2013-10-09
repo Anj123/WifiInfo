@@ -14,18 +14,19 @@ import android.content.Context;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.util.Log;
 
-public class WifiInfo extends CordovaPlugin { 
+public class WifiInfoPlugin extends CordovaPlugin {
 
-	@Override 
+	@Override
 	public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
-		
+
 		if (action.equals("get")) {
 			Context context = cordova.getActivity().getApplicationContext();
 			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 			WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-		
-		
+
+
 			JSONObject obj = new JSONObject();
 			try {
 				JSONObject activity = new JSONObject();
@@ -37,8 +38,8 @@ public class WifiInfo extends CordovaPlugin {
 				activity.put("NetworkId", wifiInfo.getNetworkId());
 				activity.put("RSSI", wifiInfo.getRssi());
 				activity.put("LinkSpeed", wifiInfo.getLinkSpeed());
-				obj.put("activity", activity); 
-			
+				obj.put("activity", activity);
+
 				JSONArray available = new JSONArray();
 		        for (ScanResult scanResult : wifiManager.getScanResults()) {
 		        	JSONObject ap = new JSONObject();
@@ -49,9 +50,9 @@ public class WifiInfo extends CordovaPlugin {
 		        	ap.put("capabilities", scanResult.capabilities);
 		        	available.put(ap);
 		        }
-		        obj.put("available", available); 
-	        
-			
+		        obj.put("available", available);
+
+
 			} catch (JSONException e) {
 				e.printStackTrace();
 				callbackContext.error("JSON Exception");
@@ -62,7 +63,7 @@ public class WifiInfo extends CordovaPlugin {
 			Log.e("PhoneGapLog", "WifiInfo Plugin: Error: " + PluginResult.Status.INVALID_ACTION);
 			callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
 			return false;
-		}		
-		
+		}
+
 	}
 }

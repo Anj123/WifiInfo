@@ -3,7 +3,7 @@ var wifi_info = {
         cordova.exec(
             successCallback, // success callback function
             errorCallback, // error callback function
-            'WifiInfo', // mapped to our native Java class called "CalendarPlugin"
+            'WifiInfoPlugin', // mapped to our native Java class called "WifiInfoPlugin"
             'get', // with this action name
             []
         ); 
